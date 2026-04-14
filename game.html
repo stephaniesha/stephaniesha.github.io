@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>沙沁 · 俄罗斯方块 | Design is about how the pieces fall together</title>
+  <meta name="description" content="沙沁个人网站 - AI时代体验设计师，俄罗斯方块主题创意展示">
+  <meta name="keywords" content="沙沁,体验设计师,UI设计,产品设计,AI设计,Figma">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 进度条 -->
+  <div id="progress-bar"></div>
+
+  <!-- 自定义光标 -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-glow"></div>
+
+  <!-- 简化导航 - 仅Logo -->
+  <nav id="nav" class="nav nav-simple">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-block"></span>
+        <span class="logo-text">SQ.</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- 主游戏区域 - 经典12x18布局 -->
+  <main id="game-page">
+    <!-- 游戏Slogan -->
+    <div id="game-slogan">
+      <div class="slogan-content">
+        <h1 class="slogan-main">
+          <span class="title-line">上班精致牛马，下班丐版土著</span>
+          <span class="title-line highlight">每一块都是体验，在AI时代精准着陆</span>
+        </h1>
+      </div>
+    </div>
+
+    <!-- 游戏内容区域 -->
+    <div class="game-content-area">
+      <!-- 游戏容器 -->
+      <div id="game-wrapper">
+        <div id="game-board">
+          <canvas id="tetris-canvas"></canvas>
+          <div class="grid-overlay"></div>
+        </div>
+      </div>
+
+      <!-- 右侧信息面板 -->
+      <aside id="game-sidebar">
+        <!-- 分栏入口 - 默认可点击 -->
+        <div class="sidebar-entries">
+          <div class="sidebar-entry active" data-type="skill">
+            <span class="entry-icon">◆</span>
+            <span class="entry-label">技能</span>
+            <span class="entry-sublabel">Skills</span>
+          </div>
+          <div class="sidebar-entry active" data-type="work">
+            <span class="entry-icon">◆</span>
+            <span class="entry-label">作品</span>
+            <span class="entry-sublabel">Works</span>
+          </div>
+          <div class="sidebar-entry active" data-type="life">
+            <span class="entry-icon">◆</span>
+            <span class="entry-label">生活</span>
+            <span class="entry-sublabel">Life</span>
+          </div>
+          <div class="sidebar-entry active" data-type="contact">
+            <span class="entry-icon">◆</span>
+            <span class="entry-label">联系</span>
+            <span class="entry-sublabel">Contact</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- 内容面板 - 覆盖整个中央区域（游戏区+右侧导航） -->
+    <div id="content-panel" class="game-overlay-panel">
+      <div class="overlay-backdrop"></div>
+      <div class="overlay-content">
+        <button class="overlay-close" aria-label="关闭">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="overlay-body">
+          <!-- 动态内容 -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 微信二维码弹窗 -->
+  <div id="qrcode-modal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="关闭">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <h3 class="modal-title">微信联系</h3>
+      <div class="qrcode-placeholder">
+        <div class="qrcode-text">qq1476685495</div>
+        <p class="qrcode-hint">搜索微信号添加好友</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 图片预览弹窗 -->
+  <div id="image-preview" class="life-image-preview">
+    <img id="preview-image" src="" alt="">
+  </div>
+
+  <!-- 复制成功提示 -->
+  <div id="copy-toast" class="toast">
+    <span class="toast-icon">✓</span>
+    <span class="toast-text">已复制到剪贴板</span>
+  </div>
+
+  <script src="js/particle.js"></script>
+  <script src="js/intro.js"></script>
+  <script src="js/auto-player.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/tetris.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
